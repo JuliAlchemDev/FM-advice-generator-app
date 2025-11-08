@@ -28,6 +28,25 @@ export const App = () => {
     fetchAdvice();
   };
 
+  // Monitor picture source changes on resize 
+  useEffect(()=> {
+    const pictureSource = document.querySelector('.advice-generator-card__divider');
+
+    const handleResize = () => {
+      console.log("Current image: ", pictureSource.currentSrc);
+    }
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    }
+  },[]);
+
+
+
+
+
   return (
     <main className="advice-generator-card">
       <section className="advice-generator-card__text">
@@ -35,18 +54,21 @@ export const App = () => {
         <q className="advice-generator-card__text-quotation">{quotation}</q>
       </section>
 
-      <img
-        src="./assets/images/pattern-divider-mobile.svg"
-        alt=""
-        width="295"
-        height="16"
-        className="advice-generator-card__divider"
-      />
-      
-      <button
-        className="advice-generator-card__button"
-        onClick={getNewAdvice}
-      >
+      <picture>
+        <source
+          srcSet="./assets/images/pattern-divider-desktop.svg"
+          media="(min-width: 48rem)"
+        />
+        <img
+          src="./assets/images/pattern-divider-mobile.svg"
+          alt=""
+          width="295"
+          height="16"
+          className="advice-generator-card__divider"
+        />
+      </picture>
+
+      <button className="advice-generator-card__button" onClick={getNewAdvice}>
         <img
           src="./assets/images/icon-dice.svg"
           alt=""
