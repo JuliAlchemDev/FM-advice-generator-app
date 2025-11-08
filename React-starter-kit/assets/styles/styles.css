@@ -11,9 +11,9 @@ body {
 .advice-generator-card {
   --border-radius: 0.6rem;
   --gap: var(--spacing-400);
-  /* DELETE */
+
   padding: 2rem;
-  /* DELETE */
+
   display: grid;
   place-content: center;
   gap: var(--gap);
@@ -34,6 +34,11 @@ body {
   display: grid;
   gap: var(--gap);
 }
+.advice-generator-card__text-loading,
+.advice-generator-card__text-error {
+  font-size: var(--fs-preset-2);
+}
+
 .advice-generator-card__text-quotation {
   /* preset 2 */
   font-size: var(--fs-preset-2);
@@ -63,9 +68,20 @@ body {
   border: 0;
   border-radius: 100%;
   background-color: var(--clr-primary-green-300);
+
+  transition: box-shadow 0.3s ease;
 }
 .advice-generator-card__button-img {
   margin: 0 auto;
+}
+.advice-generator-card__button:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+}
+.advice-generator-card__button:hover,
+.advice-generator-card__button:focus-visible {
+  box-shadow: 0 0 2.5rem 0 var(--clr-primary-green-300);
+  outline: 0;
 }
 
 @media (min-width: 48rem) {
