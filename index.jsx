@@ -10,7 +10,7 @@ export const App = () => {
     setLoading(true);
     setError(null);
     try {
-      const res = await fetch("https://api.adviceslip.com/advice");
+      const res = await fetch("https://api.adviceslip.com/advice", {cache: "no-store"});
       if (!res.ok) {
         throw new Error("Network response was not ok");
       }

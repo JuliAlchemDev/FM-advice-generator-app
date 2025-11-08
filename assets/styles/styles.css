@@ -13,6 +13,7 @@ body {
   --gap: var(--spacing-400);
 
   padding: 2rem;
+  max-width: 33.75rem;
 
   display: grid;
   place-content: center;
@@ -75,7 +76,7 @@ body {
   margin: 0 auto;
 }
 .advice-generator-card__button:disabled {
-  opacity: .6;
+  opacity: 0.6;
   cursor: not-allowed;
 }
 .advice-generator-card__button:hover,
